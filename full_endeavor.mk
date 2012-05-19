@@ -69,6 +69,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 		wifi.softap.interface=wlan1 \
 		wifi.softapconcurrent.interface=wlan1
 
+PRODUCT_LOCALES += en
+
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, vendor/htc/endeavor/endeavor-vendor.mk)
