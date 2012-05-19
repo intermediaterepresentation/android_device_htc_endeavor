@@ -55,7 +55,6 @@ BOARD_HAVE_BLUETOOTH := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WLAN_DEVICE := wl12xx_mac80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME     :=  "wl12xx_sdio"
 
@@ -64,12 +63,12 @@ TARGET_OTA_ASSERT_DEVICE := endeavoru
 
 # Kernel building
 TIWLAN_MODULES:
-	make -C hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx CONFIG_COMPAT_NETWORK_MODULES=n CONFIG_COMPAT_BLUETOOTH_MODULES=n CONFIG_COMPAT_BLUETOOTH=n KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH="arm" CROSS_COMPILE="arm-eabi-"
-	mv hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx/net/wireless/cfg80211.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx/net/mac80211/mac80211.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan-omapzoom/mac80211/compat_wl12xx/compat/compat.ko $(KERNEL_MODULES_OUT)
+	make -C hardware/ti/wlan/mac80211/compat_wl12xx CONFIG_COMPAT_NETWORK_MODULES=n CONFIG_COMPAT_BLUETOOTH_MODULES=n CONFIG_COMPAT_BLUETOOTH=n KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH="arm" CROSS_COMPILE="arm-eabi-"
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/wireless/cfg80211.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/mac80211/mac80211.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat.ko $(KERNEL_MODULES_OUT)
 
 TARGET_KERNEL_MODULES := TIWLAN_MODULES
 TARGET_KERNEL_SOURCE := kernel/htc/endeavor
