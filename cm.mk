@@ -31,5 +31,5 @@ $(call inherit-product, device/htc/endeavor/full_endeavor.mk)
 PRODUCT_DEVICE := endeavor
 PRODUCT_NAME := cm_endeavor
 PRODUCT_BRAND := htc_europe
-PRODUCT_MODEL := EndeavorU
+PRODUCT_MODEL := HTC One X
 
