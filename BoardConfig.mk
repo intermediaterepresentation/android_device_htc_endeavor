@@ -48,6 +48,9 @@ TARGET_BOARD_PLATFORM := tegra
 BOARD_EGL_CFG := device/htc/endeavor/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+
 # Wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
