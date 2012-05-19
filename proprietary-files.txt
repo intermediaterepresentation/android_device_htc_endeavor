@@ -11,6 +11,10 @@ bin/akmd
 # gyroscope
 bin/ewtzmud
 
+# icera
+lib/libril-icera.so
+bin/fild
+
 # radio nvm
 bin/nvm_server
 bin/nvm_client
