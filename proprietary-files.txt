@@ -209,9 +209,6 @@ lib/libhtcsurfaces.so
 lib/libcall_volume.so
 lib/libbt-aptx-4.0.3.so
 
-lib/libbluetooth.so
-lib/libbluetoothd.so
-
 lib/libmllite.so
 lib/libmlplatform.so
 lib/libmpl.so
