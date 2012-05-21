@@ -2,6 +2,22 @@
 lib/librilpos.so
 lib/libhtc_ril.so
 
+# keylayout
+usr/keylayout/tegra-kbc.kl
+
+# media
+etc/media_profiles.xml
+
+# agps
+bin/rilposd
+bin/RXN_IntApp
+etc/gps/agps.truststore
+etc/gps/agps.truststore_lab
+etc/gps/tigpsrouter
+etc/gps/RXN/MSLConfig.txt
+etc/gps/RXN/license.key
+etc/gps/RXN/security.key
+
 # gps
 lib/libsuplhelperservicejni.so
 lib/libsupllocationprovider.so
@@ -240,7 +256,6 @@ lib/libmpl_jni.so
 lib/hw/camera.tegra.so
 lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
-lib/hw/audio.a2dp.default.so
 lib/hw/audio.primary.tegra.so
 lib/hw/audio_policy.tegra.so
 lib/hw/gps.tegra.so
