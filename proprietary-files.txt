@@ -2,6 +2,18 @@
 lib/librilpos.so
 lib/libhtc_ril.so
 
+# gps
+lib/libsuplhelperservicejni.so
+lib/libsupllocationprovider.so
+lib/libgps.so
+lib/libgpsservices.so
+lib/libmcphal.so
+lib/libmcphalgps.so
+bin/navl_server
+bin/cplc_main
+bin/GPSCConfigFile.cfg
+bin/pathconfigfile.txt
+
 # uim (bluetooth, fm, etc,.)
 bin/uim-sysfs
 etc/firmware/TIInit_10.4.27.bts
