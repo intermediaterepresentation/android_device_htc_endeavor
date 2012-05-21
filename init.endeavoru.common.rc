@@ -333,7 +333,7 @@ service htcbatt /system/bin/htcbatt
      oneshot
 
 # HTC_WIFI_START
-service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/system/etc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
