@@ -44,6 +44,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 		device/htc/endeavor/vold.fstab:system/etc/vold.fstab
 
+# NFC
+PRODUCT_PACKAGES += \
+        libnfc \
+        libnfc_jni \
+        Nfc \
+        Tag
+PRODUCT_COPY_FILES += \
+	vendor/htc/endeavor/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+
 # Permissions
 PRODUCT_COPY_FILES += \
 		device/htc/endeavor/configs/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \

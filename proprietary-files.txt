@@ -2,6 +2,10 @@
 lib/librilpos.so
 lib/libhtc_ril.so
 
+# nfc
+etc/nfcee_access.xml
+lib/libpn544_fw.so
+
 # keylayout
 usr/keylayout/tegra-kbc.kl
 
@@ -81,6 +85,7 @@ lib/libnvddk_2d.so
 lib/libnvddk_2d_v2.so
 lib/libnvdispmgr_d.so
 lib/libardrv_dynamic.so
+lib/libnvodm_dtvtuner.so
 lib/libnvodm_hdmi.so
 lib/libnvodm_imager.so
 lib/libnvodm_misc.so
@@ -163,6 +168,7 @@ lib/libdumppcm.so
 lib/libhtccamera.so
 lib/libnvmm.so
 lib/libnvmm_audio.so
+lib/libnvmm_asfparser.so
 lib/libnvmm_aviparser.so
 lib/libnvmm_camera.so
 lib/libnvmm_contentpipe.so
