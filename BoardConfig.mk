@@ -45,7 +45,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_BOARD_PLATFORM := tegra
 
 # graphics
-BOARD_EGL_CFG := device/htc/endeavor/configs/egl.cfg
+BOARD_EGL_CFG := device/htc/endeavoru/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 
 # Bluetooth
@@ -58,9 +58,6 @@ BOARD_WLAN_DEVICE := wl12xx_mac80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME     :=  "wl12xx_sdio"
-
-# ota
-TARGET_OTA_ASSERT_DEVICE := endeavoru
 
 # Kernel building
 TIWLAN_MODULES:

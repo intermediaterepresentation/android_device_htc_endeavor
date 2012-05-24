@@ -18,18 +18,18 @@
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := ONE_X
+PRODUCT_RELEASE_NAME := endeavoru
 
 TARGET_BOOTANIMATION_NAME := vertical-720x1280
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-$(call inherit-product, device/htc/endeavor/full_endeavor.mk)
+$(call inherit-product, device/htc/endeavoru/full_endeavor.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := endeavor
-PRODUCT_NAME := cm_endeavor
+PRODUCT_DEVICE := endeavoru
+PRODUCT_NAME := cm_endeavoru
 PRODUCT_BRAND := htc_europe
 PRODUCT_MODEL := HTC One X
-
+PRODUCT_MANUFACTURER := HTC
