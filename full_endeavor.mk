@@ -44,6 +44,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 		device/htc/endeavoru/vold.fstab:system/etc/vold.fstab
 
+# Keyboard
+PRODUCT_COPY_FILES += \
+		device/htc/endeavoru/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+
 # NFC
 PRODUCT_PACKAGES += \
         libnfc \
