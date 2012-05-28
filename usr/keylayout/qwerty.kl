@@ -112,4 +112,4 @@ key 1     BACK              WAKE_DROPPED
 key 68    MENU              WAKE_DROPPED
 
 #F12
-key 88    APP_SWITCH        WAKE_DROPPED
+key 88    MENU              WAKE_DROPPED
