@@ -29,13 +29,13 @@
     <color name="config_defaultNotificationColor">#ff00ff00</color>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOn">1000</integer>
+    <integer name="config_defaultNotificationLedOn">300</integer>
 
     <!-- Default LED off time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOff">9000</integer>
+    <integer name="config_defaultNotificationLedOff">5000</integer>
 
     <!-- Our amoled doesn't animate well. -->
-    <bool name="config_animateScreenLights">false</bool>
+    <bool name="config_animateScreenLights">true</bool>
 
     <!-- Control whether being in the desk dock (and powered) always
          keeps the screen on.  By default it stays on when plugged in to
@@ -208,10 +208,20 @@
     <!-- The VoiceMail default value is displayed to my own number if it is true -->
     <bool name="config_telephony_use_own_number_for_voicemail">true</bool>
 	
+	<bool name="config_showNavigationBar">true</bool>
+	
 	<bool name="target_honeycomb_needs_options_menu">true</bool>
+	
+	<bool name="config_disableMenuKeyInLockScreen">true</bool>
+	
+	<bool name="config_showMenuShortcutsWhenKeyboardPresent">false</bool>
 	
 	<bool name="config_actionMenuItemAllCaps">true</bool>
 	
     <bool name="config_allowActionMenuItemTextWithIcon">false</bool>
+	
+	<dimen name="navigation_bar_height">0.0dip</dimen>
+    
+	<dimen name="navigation_bar_width">0.0dip</dimen>
 
 </resources>
