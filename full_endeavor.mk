@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+DEVICE_PACKAGE_OVERLAYS := device/htc/endeavoru/overlay
 
 # NEED TO ADD acp_recvy and miniunz for some reason
 
@@ -55,7 +56,7 @@ PRODUCT_PACKAGES += \
         Nfc \
         Tag
 PRODUCT_COPY_FILES += \
-	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+		vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -79,9 +80,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.sf.lcd_density=320 \
-	wifi.interface=wlan0 \
-	wifi.softap.interface=wlan1 \
-	wifi.softapconcurrent.interface=wlan1
+		wifi.interface=wlan0 \
+		wifi.softap.interface=wlan1 \
+		wifi.softapconcurrent.interface=wlan1 \
+		persist.sys.usb.config=mass_storage,adb
 
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
