@@ -9,9 +9,6 @@ lib/libpn544_fw.so
 # keylayout
 usr/keylayout/tegra-kbc.kl
 
-# media
-etc/media_profiles.xml
-
 # agps
 bin/rilposd
 bin/RXN_IntApp
