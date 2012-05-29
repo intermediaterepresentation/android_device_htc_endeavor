@@ -20,7 +20,7 @@ DEVICE_PACKAGE_OVERLAYS := device/htc/endeavoru/overlay
 # # This device is xhdpi.
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-PRODUCT_LOCALES += xhdpi
+PRODUCT_LOCALES += en_US xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
