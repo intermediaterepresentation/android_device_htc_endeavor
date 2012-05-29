@@ -20,7 +20,7 @@ DEVICE_PACKAGE_OVERLAYS := device/htc/endeavoru/overlay
 # # This device is xhdpi.
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-PRODUCT_LOCALES += xhdpi
+PRODUCT_LOCALES += en_US xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 		vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
+# Torch
+PRODUCT_PACKAGES += \
+    Torch		
+		
 # Permissions
 PRODUCT_COPY_FILES += \
 		device/htc/endeavoru/configs/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -78,6 +82,10 @@ PRODUCT_COPY_FILES += \
 	    device/htc/endeavoru/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
 		device/htc/endeavoru/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc
 
+# Custom media config for HTC camera
+PRODUCT_COPY_FILES += \
+		device/htc/endeavoru/configs/media_profiles.xml:system/etc/media_profiles.xml
+		
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.sf.lcd_density=320 \
 		wifi.interface=wlan0 \
