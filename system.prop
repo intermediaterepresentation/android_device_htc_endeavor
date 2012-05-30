@@ -96,6 +96,9 @@ dalvik.vm.execution-mode=int:jit
 persist.sys.use_dithering=1
 dalvik.vm.dexopt-flags=m=y
 
+#Certain apps like chrome in play store check and need this
+ro.opengles.version = 131072
+
 #export for SoundHound
 persist.htc.audio.pcm.samplerate=48000
 persist.htc.audio.pcm.channels=2
