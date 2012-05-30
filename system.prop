@@ -81,6 +81,22 @@ audio.headset.voice.3=25
 audio.headset.voice.4=28
 audio.headset.voice.5=31
 persist.tegra.nvmmlite = 1
+
+#Performance and battery tweaks
+ro.ril.disable.power.collapse=1
+debug.performance.tuning=1
+video.accelerate.hw=1
+wifi.supplicant_scan_interval=100
+debug.sf.hw=1
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.jpeg.quality=100
+dalvik.vm.execution-mode=int:jit
+persist.sys.use_dithering=1
+dalvik.vm.dexopt-flags=m=y
+
+#Certain apps like chrome in play store check and need this
+ro.opengles.version = 131072
+
 #export for SoundHound
 persist.htc.audio.pcm.samplerate=48000
 persist.htc.audio.pcm.channels=2
