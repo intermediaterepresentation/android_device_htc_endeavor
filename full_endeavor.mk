@@ -91,7 +91,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 		wifi.interface=wlan0 \
 		wifi.softap.interface=wlan1 \
 		wifi.softapconcurrent.interface=wlan1 \
-		persist.sys.usb.config=mass_storage,adb
+		persist.sys.usb.config=mtp,adb \
+		persist.service.adb.enable=1
 
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)

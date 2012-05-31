@@ -80,6 +80,8 @@ audio.headset.voice.2=22
 audio.headset.voice.3=25
 audio.headset.voice.4=28
 audio.headset.voice.5=31
+
+#Tegra 3 Stuff
 persist.tegra.nvmmlite = 1
 
 #Performance and battery tweaks
