@@ -45,6 +45,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 		device/htc/endeavoru/vold.fstab:system/etc/vold.fstab
 
+# Lights
+PRODUCT_PACKAGES += \
+	lights.endeavoru
+
 # Keyboard
 PRODUCT_COPY_FILES += \
 		device/htc/endeavoru/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
