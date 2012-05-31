@@ -263,6 +263,5 @@ lib/hw/audio.primary.tegra.so
 lib/hw/audio_policy.tegra.so
 lib/hw/gps.tegra.so
 lib/hw/hwcomposer.tegra.so
-lib/hw/lights.tegra.so
 lib/hw/nfc.endeavoru.so
 lib/hw/sensors.endeavoru.so
