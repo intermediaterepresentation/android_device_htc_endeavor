@@ -136,6 +136,12 @@ insmod /system/lib/modules/kineto_gan.ko
 # backlight
     chown system system /sys/class/backlight/tegra-pwm-bl/brightness
 
+# leds
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/amber/brightness
+    chown system system /sys/class/leds/amber/blink
+
 # didim
     chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
