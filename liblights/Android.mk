@@ -16,7 +16,7 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := lights.endeavoru
+LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
