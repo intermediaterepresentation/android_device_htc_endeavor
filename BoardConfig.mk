@@ -37,6 +37,9 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/fsl-tegra-udc/gadget/lun0/file
 
+# Lights
+TARGET_PROVIDES_LIBLIGHTS := true
+
 # partitions
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
