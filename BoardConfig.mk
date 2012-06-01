@@ -67,11 +67,11 @@ WIFI_DRIVER_MODULE_NAME     :=  "wl12xx_sdio"
 
 # Kernel building
 TIWLAN_MODULES:
-	mv device/htc/endeavoru/modules/cfg80211.ko $(KERNEL_MODULES_OUT)
-	mv device/htc/endeavoru/modules/mac80211.ko $(KERNEL_MODULES_OUT)
-	mv device/htc/endeavoru/modules/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
-	mv device/htc/endeavoru/modules/wl12xx.ko $(KERNEL_MODULES_OUT)
-	mv device/htc/endeavoru/modules/compat.ko $(KERNEL_MODULES_OUT)
+	cp device/htc/endeavoru/modules/cfg80211.ko $(KERNEL_MODULES_OUT)
+	cp device/htc/endeavoru/modules/mac80211.ko $(KERNEL_MODULES_OUT)
+	cp device/htc/endeavoru/modules/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
+	cp device/htc/endeavoru/modules/wl12xx.ko $(KERNEL_MODULES_OUT)
+	cp device/htc/endeavoru/modules/compat.ko $(KERNEL_MODULES_OUT)
 
 TARGET_KERNEL_MODULES := TIWLAN_MODULES
 TARGET_KERNEL_SOURCE := kernel/htc/endeavor
