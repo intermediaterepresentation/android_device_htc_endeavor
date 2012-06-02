@@ -4,10 +4,8 @@
 
 1. Download the latest pre-built version of the ROM from [here](http://mirror.faked.org/cm9/), or build it yourself (see below)
 2. Enter fastboot mode on your phone, and connect it to your computer
-3. Erase your phone's cache with the following command:
-	fastboot erase cache
-4. Flash the boot.img from inside the zip file to your phone's partition with the following command:
-	fastboot flash boot boot.img
+3. Erase your phone's cache with the following command: `fastboot erase cache`
+4. Flash the boot.img from inside the zip file to your phone's partition with the following command: `fastboot flash boot boot.img`
 5. Enter recovery on your phone
 6. Do a nandroid backup of your phone, in case something goes wrong
 7. If you're coming from another ROM, wipe data and wipe cache, otherwise a data wipe may not be necessary.
