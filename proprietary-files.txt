@@ -72,6 +72,11 @@ bin/mknod
 etc/Flash_Loader.conf
 etc/QUO_6260.fls.clean
 
+# FM Radio
+lib/libfmchr.so
+lib/libfmradio.so
+lib/libfmstack.so
+
 # graphics
 lib/libcgdrv.so
 lib/libnvos.so
