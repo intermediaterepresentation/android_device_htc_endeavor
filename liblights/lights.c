@@ -132,16 +132,16 @@ static void set_speaker_light_locked(struct light_device_t *dev,
         case LED_AMBER:
           write_int(AMBER_BLINK_FILE, 1);
           write_int(GREEN_LED_FILE, 0);
-          write_int(AMBER_BLINK_FILE, blinkMode);
           break;
         case LED_GREEN:
           write_int(GREEN_BLINK_FILE, 1);
           write_int(AMBER_LED_FILE, 0);
-          write_int(GREEN_BLINK_FILE, blinkMode);
           break;
         case LED_BLANK:
           write_int(AMBER_BLINK_FILE, 0);
           write_int(GREEN_BLINK_FILE, 0);
+          write_int(AMBER_LED_FILE, 0);
+          write_int(GREEN_LED_FILE, 0);
           break;
         default:
           LOGE("set_led_state colorRGB=%08X, unknown color\n", colorRGB);
@@ -149,6 +149,8 @@ static void set_speaker_light_locked(struct light_device_t *dev,
       }
       break;
     case LIGHT_FLASH_NONE:
+      write_int(AMBER_BLINK_FILE, 0);
+      write_int(GREEN_BLINK_FILE, 0);
       switch (color) {
         case LED_AMBER:
           write_int(AMBER_LED_FILE, 1);
@@ -176,6 +178,9 @@ static void set_speaker_light_locked_dual(struct light_device_t *dev,
   unsigned int bcolorRGB = bstate->color & 0xFFFFFF;
   unsigned int bcolor = LED_BLANK;
   unsigned int blinkMode = BLINK_MODE_LONG;
+
+  // NOTE: (tgascoigne) I couldn't get dual leds to work, does the hox support this? :/
+  // Currently just blinks the color that's already on
 
   if ((bcolorRGB >> 8) & 0xFF) bcolor = LED_GREEN;
   if ((bcolorRGB >> 16) & 0xFF) bcolor = LED_AMBER;
