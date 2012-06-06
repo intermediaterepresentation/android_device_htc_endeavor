@@ -58,7 +58,9 @@ PRODUCT_PACKAGES += \
         libnfc \
         libnfc_jni \
         Nfc \
-        Tag
+        Tag \
+        nfc-extras
+
 PRODUCT_COPY_FILES += \
 		vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
