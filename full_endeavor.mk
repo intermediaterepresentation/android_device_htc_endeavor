@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/configs/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
 	device/htc/endeavoru/configs/alsa.conf:system/usr/share/alsa/alsa.conf
 
+# GPS Certificate
+PRODUCT_COPY_FILES += \
+	device/htc/endeavoru/prebuilt/SuplRootCert:system/etc/SuplRootCert
+
 # Wifi
 PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
