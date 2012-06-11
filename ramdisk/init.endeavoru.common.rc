@@ -117,6 +117,13 @@ insmod /system/lib/modules/kineto_gan.ko
 
 #GPS
     setprop ro.gps.supl.supported true
+    # NOTE: (tgascoigne) For some reason /data/tigps doesn't get created.
+    # make the missing dirs here
+    mkdir /data/tigps
+    mkdir /data/tigps/aiding
+    mkdir /data/tigps/etc
+    mkdir /data/tigps/logs
+
     mkdir /data/RXN
     mkdir /data/RXN/RXN
     mkdir /data/RXN/RXN/pred
