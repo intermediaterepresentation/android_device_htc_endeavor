@@ -296,7 +296,10 @@ service ril-daemon /system/bin/rild
     class core
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
+    socket rild-audio stream 660 radio system
     socket rild-audio-gsm stream 660 radio system
+    socket rild-htc stream 660 radio system
+    socket rild-htc-coredump stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_rw
 

@@ -104,10 +104,6 @@ lib/libnvtvmr.so
 lib/libnvwinsys.so
 lib/libnvwsi.so
 
-# sound
-lib/libasound.so
-
-
 # egl
 lib/egl/libEGL_tegra.so
 lib/egl/libEGL_perfhud.so
@@ -259,9 +255,11 @@ lib/libhtcsurfaces.so
 lib/libcall_volume.so
 lib/libbt-aptx-4.0.3.so
 lib/libaudioflinger.so
-lib/libasound.so
 lib/libmedia.so
 lib/libmediaplayerservice.so
+lib/libasound.so
+lib/libsrsprocessing.so
+lib/libsrscorehtc.so
 
 lib/libmllite.so
 lib/libmlplatform.so
