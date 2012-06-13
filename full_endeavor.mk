@@ -24,10 +24,11 @@ PRODUCT_LOCALES += en_US xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
+	device/htc/endeavoru/ramdisk/init:root/init \
 	device/htc/endeavoru/ramdisk/init.rc:root/init.rc \
 	device/htc/endeavoru/ramdisk/init.usb.rc:root/init.usb.rc \
-	device/htc/endeavoru/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
 	device/htc/endeavoru/ramdisk/init.endeavoru.rc:root/init.endeavoru.rc \
+	device/htc/endeavoru/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
 	device/htc/endeavoru/ramdisk/ueventd.rc:root/ueventd.rc \
 	device/htc/endeavoru/ramdisk/ueventd.endeavoru.rc:root/ueventd.endeavoru.rc
 
