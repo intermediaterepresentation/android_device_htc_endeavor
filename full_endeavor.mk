@@ -60,14 +60,32 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-	libnfc \
-	libnfc_jni \
-	Nfc \
-	Tag \
-	nfc-extras
+        libnfc \
+        libnfc_jni \
+        Nfc \
+        Tag \
+		com.android.nfc_extras
 
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        VisualizationWallpapers \
+        librs_jni
+
+# a2dp
+PRODUCT_PACKAGES += \
+	audio.a2dp.default \
+    libaudioutils \
+    libtinyalsa	
+	
 PRODUCT_COPY_FILES += \
 	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+	make_ext4fs \
+	setup_fs
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -88,7 +106,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+	frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 
 PRODUCT_COPY_FILES += \
