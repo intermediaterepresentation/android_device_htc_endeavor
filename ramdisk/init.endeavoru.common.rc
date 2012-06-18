@@ -10,7 +10,7 @@ on early-init
     symlink /mnt/sdcard /sdcard
 
 on emmc-fs
-    mount ext4 /dev/block/mmcblk0p12 /system wait ro
+    mount ext4 /dev/block/mmcblk0p12 /system wait rw
     mount ext4 /dev/block/mmcblk0p15 /data wait noatime nosuid nodev noauto_da_alloc
     mount ext4 /dev/block/mmcblk0p13 /cache wait noatime nosuid nodev noauto_da_alloc
     mkdir /rca 0775 radio radio
@@ -22,7 +22,6 @@ on emmc-fs
     chmod 0660 /rfs
 	mkdir /devlog 0700 root root
 	mount ext4 /dev/block/mmcblk0p19 /devlog nosuid nodev
-    chown media /dev/block/mmcblk0p2
     start poweron_modem
 
 loglevel 3
@@ -34,9 +33,12 @@ on post-fs-data
 
 on boot
     # Setup paths used for socket communication with the dhcp daemon(dhcpd)
-    mkdir /data/misc/dhcp 0777 dhcp dhcp
-    mkdir /data/nvcam 0777 system system
-    chown dhcp dhcp /data/misc/dhcp
+    	mkdir /data/nvcam 0770 system system
+	mkdir /data/misc/wifi 0770 wifi wifi
+	mkdir /data/misc/wifi/sockets 0770 wifi wifi
+        mkdir /data/misc/wifi/hostapd 0770 wifi wifi
+   	mkdir /data/misc/dhcp 0770 dhcp dhcp
+    	chown dhcp dhcp /data/misc/dhcp
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -83,19 +85,12 @@ on boot
 	chown system system /proc/net/xt_qtaguid/ctrl
     chmod 0664 /proc/net/xt_qtaguid/ctrl
 
-# HTC_WIFI_START
-	mkdir /data/misc/wifi 0770 wifi wifi
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
-	mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
+# Load modules while booting
 	insmod /system/lib/modules/compat.ko
 	insmod /system/lib/modules/cfg80211.ko
 	insmod /system/lib/modules/mac80211.ko
-    insmod /system/lib/modules/wl12xx.ko debug_level=0x63c00
-# HTC_WIFI_END
-
-# Load kineto_gan.ko while booting
-insmod /system/lib/modules/kineto_gan.ko
+        insmod /system/lib/modules/wl12xx.ko debug_level=0x63c00
+	insmod /system/lib/modules/kineto_gan.ko
 
 # bluetooth
     # UART device
@@ -117,13 +112,10 @@ insmod /system/lib/modules/kineto_gan.ko
 
 #GPS
     setprop ro.gps.supl.supported true
-    # NOTE: (tgascoigne) For some reason /data/tigps doesn't get created.
-    # make the missing dirs here
     mkdir /data/tigps
     mkdir /data/tigps/aiding
     mkdir /data/tigps/etc
     mkdir /data/tigps/logs
-
     mkdir /data/RXN
     mkdir /data/RXN/RXN
     mkdir /data/RXN/RXN/pred
@@ -154,6 +146,16 @@ insmod /system/lib/modules/kineto_gan.ko
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
 
 # Sensor
+    mkdir /data/sensors 0751 system system
+    mkdir /data/lightsensor 0751 system system
+    chmod 666 /dev/nvhost-ctrl
+    chmod 666 /dev/nvhost-display
+    chmod 666 /dev/nvhost-dsi
+    chmod 666 /dev/nvhost-gr2d
+    chmod 666 /dev/nvhost-gr3d
+    chmod 666 /dev/nvhost-isp
+    chmod 666 /dev/nvhost-mpe
+    chmod 666 /dev/nvhost-vi
     chown system system /sys/bus/iio/devices/device0/als_ir_mode
     chown system system /sys/bus/iio/devices/device0/proximity_enable
 
@@ -177,6 +179,11 @@ insmod /system/lib/modules/kineto_gan.ko
 
 # GPIO BB access for user radio
     chown radio system /sys/class/gpio/gpio32/value
+
+    # allow interfaces to get v6 address when tethering is enabled
+    write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
 
 # Power management settings
     write /sys/module/cpu_tegra3/parameters/no_lp 0
@@ -247,36 +254,6 @@ service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     oneshot
     keycodes 115 114
 
-#BCM
-#service hciattach /system/bin/brcm_patchram_plus --enable_hci \
-#    --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd /dev/ttyHS2
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-
-#### Start GPS daemon
-###  on boot
-###  write /sys/class/gpio/export 36
-###  write /sys/class/gpio/gpio36/value 0
-###  write /sys/class/gpio/gpio36/direction out
-###  write /sys/class/gpio/export 37
-###  write /sys/class/gpio/gpio37/direction out
-###  write /sys/class/gpio/gpio37/value 1
-###  #service gps-daemon /system/bin/glgps_nvidiaTegra2android -c /system/etc/gps/gpsconfig.xml
-###  #user root
-###  #group root
-
-# Start FIL daemon
-#service fil-daemon /system/bin/fild -p /dev/ttyHS0 -s /dev/ttyACM0 -f /dev/ttyACM0 --with-bt3
-#    user radio
-
-service gsm0710mux /system/bin/gsm0710muxd -s /dev/ttyACM0 -v 5 -n 8 -m basic
-    class core
-    user radio
-    group radio cache inet misc
-#    oneshot
-    disabled
-
 service nvm-server /system/bin/nvm_server
     class core
     socket nvm-ctl stream 660 radio radio
@@ -297,7 +274,6 @@ service poweron_modem /system/bin/poweron_modem_fls.sh /data/modem_work/
     user root
     group root
     oneshot
-#    start gsm0710mux
     disabled
 
 service uim /system/bin/uim-sysfs
@@ -314,39 +290,16 @@ service nav /system/bin/navl_server --android_log NAVD-p3 -nav\"-c/system/bin/pa
 service rxn_intapp /system/bin/RXN_IntApp /system/etc/gps/RXN/MSLConfig.txt
     class main
 
-service rilPos-daemon /system/bin/rilposd -l /system/lib/librilpos.so -- -c agps_v_channel
-    class main
-    disabled
-    oneshot
-
 service cplc_main /system/bin/cplc_main
     class main
     disabled
     oneshot
 
-# Recovery daemon: configure MSC partition (misc)
-#service recoveryd /system/bin/recoveryd /dev/block/mmcblk0p17
-#    disabled
-#    class main
-#    user root
-#    group root
-#    oneshot
-
-#calibration DATA for modem
-#    on boot
-#    mkdir /data/modem 0777 system system
-#    mount ext4 /dev/block/mmcblk0p15 /data/modem
-
-
-#on property:sys.shutdown.requested=1recovery
-#    start recoveryd
-
 service htcbatt /system/bin/htcbatt
      class core
      oneshot
 
-# HTC_WIFI_START
-service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
@@ -371,7 +324,8 @@ service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
     disabled
     oneshot
 
-service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
+service hostapd_bin /system/bin/logwrapper /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
+    class main
     socket wpa_wlan1 dgram 660 wifi wifi
     disabled
     oneshot
