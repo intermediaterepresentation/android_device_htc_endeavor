@@ -24,9 +24,11 @@ PRODUCT_LOCALES += en_US xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
+	device/htc/endeavoru/ramdisk/init:root/init \
+	device/htc/endeavoru/ramdisk/init.rc:root/init.rc \
 	device/htc/endeavoru/ramdisk/init.usb.rc:root/init.usb.rc \
-	device/htc/endeavoru/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
 	device/htc/endeavoru/ramdisk/init.endeavoru.rc:root/init.endeavoru.rc \
+	device/htc/endeavoru/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
 	device/htc/endeavoru/ramdisk/ueventd.rc:root/ueventd.rc \
 	device/htc/endeavoru/ramdisk/ueventd.endeavoru.rc:root/ueventd.endeavoru.rc
 
@@ -60,27 +62,34 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-        libnfc \
-        libnfc_jni \
-        Nfc \
-        Tag \
-		com.android.nfc_extras
+	libnfc \
+	libnfc_jni \
+	Nfc \
+	Tag \
+	com.android.nfc_extras
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
-        librs_jni
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	VisualizationWallpapers \
+	librs_jni
 
 # a2dp
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
-    libaudioutils \
-    libtinyalsa	
-	
+	libaudioutils \
+	libtinyalsa	
+
+# NFC firmware
 PRODUCT_COPY_FILES += \
 	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+
+# TripNRaver's libmedia + libaudioflinger
+# Part of the echo fix (stops camera from breaking)
+PRODUCT_COPY_FILES += \
+	device/htc/endeavoru/prebuilt/lib/libmedia.so:system/lib/libmedia.so \
+	device/htc/endeavoru/prebuilt/lib/libaudioflinger.so:system/lib/libaudioflinger.so
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
