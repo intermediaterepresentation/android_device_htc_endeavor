@@ -156,7 +156,6 @@ etc/firmware/ti-connectivity/wl128x-fw-mr.bin.r5
 
 # stagefright
 lib/libstagefrighthw.so
-lib/libstagefright.so
 
 # camera
 lib/libcapsjava.so
@@ -256,7 +255,6 @@ lib/libcall_volume.so
 lib/libbt-aptx-4.0.3.so
 lib/libaudioflinger.so
 lib/libmedia.so
-lib/libmediaplayerservice.so
 lib/libasound.so
 lib/libsrsprocessing.so
 lib/libsrscorehtc.so
