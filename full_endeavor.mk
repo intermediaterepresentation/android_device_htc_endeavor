@@ -80,10 +80,16 @@ PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	libaudioutils \
 	libtinyalsa	
-	
+
+# NFC firmware
 PRODUCT_COPY_FILES += \
 	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
+# TripNRaver's libmedia + libaudioflinger
+# Part of the echo fix (stops camera from breaking)
+PRODUCT_COPY_FILES += \
+	device/htc/endeavoru/prebuilt/lib/libmedia.so:system/lib/libmedia.so \
+	device/htc/endeavoru/prebuilt/lib/libaudioflinger.so:system/lib/libaudioflinger.so
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
