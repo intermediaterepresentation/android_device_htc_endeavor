@@ -62,27 +62,28 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-        libnfc \
-        libnfc_jni \
-        Nfc \
-        Tag \
-		com.android.nfc_extras
+	libnfc \
+	libnfc_jni \
+	Nfc \
+	Tag \
+	com.android.nfc_extras
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
-        librs_jni
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	VisualizationWallpapers \
+	librs_jni
 
 # a2dp
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
-    libaudioutils \
-    libtinyalsa	
+	libaudioutils \
+	libtinyalsa	
 	
 PRODUCT_COPY_FILES += \
 	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
