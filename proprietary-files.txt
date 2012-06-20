@@ -273,9 +273,3 @@ lib/hw/gps.tegra.so
 lib/hw/hwcomposer.tegra.so
 lib/hw/nfc.endeavoru.so
 lib/hw/sensors.endeavoru.so
-
-#Wifi Hotspot
-bin/hostapd
-bin/hostapd_cli
-etc/wifi/TQS_D_1.7.ini
-etc/wifi/hostapd.conf

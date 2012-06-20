@@ -34,6 +34,8 @@ PRODUCT_COPY_FILES := \
 
 PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/configs/gps.conf:system/etc/gps.conf \
+	device/htc/endeavoru/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/htc/endeavoru/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
 	device/htc/endeavoru/configs/nvcamera.conf:system/etc/nvcamera.conf \
 	device/htc/endeavoru/configs/asound.conf:system/etc/asound.conf \
 	device/htc/endeavoru/configs/AIC3008_REG_DualMic_XC.csv:system/etc/AIC3008_REG_DualMic_XC.csv \
@@ -45,8 +47,19 @@ PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/prebuilt/etc/SuplRootCert:system/etc/SuplRootCert
 
 # Wifi
+PRODUCT_PACKAGES += \
+	dhcpcd.conf \
+	TQS_D_1.7.ini \
+	calibrator
+
+# Wifi Modules
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+	device/htc/endeavoru/prebuilt/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
+	device/htc/endeavoru/prebuilt/modules/compat.ko:system/lib/modules/compat.ko \
+	device/htc/endeavoru/prebuilt/modules/mac80211.ko:system/lib/modules/mac80211.ko \
+	device/htc/endeavoru/prebuilt/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
+	device/htc/endeavoru/prebuilt/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
+
 
 # Vold
 PRODUCT_COPY_FILES += \
@@ -66,7 +79,8 @@ PRODUCT_PACKAGES += \
 	libnfc_jni \
 	Nfc \
 	Tag \
-	com.android.nfc_extras
+	com.android.nfc_extras \
+	com.android.future.usb.accessory
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -83,7 +97,7 @@ PRODUCT_PACKAGES += \
 
 # NFC firmware
 PRODUCT_COPY_FILES += \
-	vendor/htc/endeavoru/proprietary/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+	device/htc/endeavoru/prebuilt/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
 # TripNRaver's libmedia + libaudioflinger
 # Part of the echo fix (stops camera from breaking)
@@ -110,6 +124,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
 	frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
 	frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
 	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
 	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
@@ -136,7 +151,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.softapconcurrent.interface=wlan1 \
 	persist.sys.usb.config=mass_storage,adb
 
-
+$(call inherit-product-if-exists, hardware/ti/wan/mac80211/Android.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, vendor/htc/endeavoru/endeavoru-vendor.mk)
 $(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)
