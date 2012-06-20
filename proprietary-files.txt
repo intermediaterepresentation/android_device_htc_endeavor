@@ -253,8 +253,6 @@ lib/libhtcsurfaces.so
 # audio
 lib/libcall_volume.so
 lib/libbt-aptx-4.0.3.so
-lib/libaudioflinger.so
-lib/libmedia.so
 lib/libasound.so
 lib/libsrsprocessing.so
 lib/libsrscorehtc.so
