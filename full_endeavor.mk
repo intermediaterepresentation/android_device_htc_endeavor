@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS Certificate
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/SuplRootCert:system/etc/SuplRootCert
+	device/htc/endeavoru/prebuilt/etc/SuplRootCert:system/etc/SuplRootCert
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -58,7 +58,7 @@ PRODUCT_PACKAGES += \
 
 # Keyboard
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+	device/htc/endeavoru/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -121,9 +121,9 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
-	device/htc/endeavoru/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-	device/htc/endeavoru/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc
+	device/htc/endeavoru/prebuilt/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
+	device/htc/endeavoru/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+	device/htc/endeavoru/prebuilt/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc
 
 # Custom media config for HTC camera
 PRODUCT_COPY_FILES += \
