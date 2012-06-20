@@ -243,10 +243,10 @@
     <string translatable="false" name="config_tether_apndata"></string>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
+    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 
     <!-- Boolean indicating whether the wifi chipset has p2p support -->
-    <bool translatable="false" name="config_wifi_p2p_support">false</bool>
+    <bool translatable="false" name="config_wifi_p2p_support">true</bool>
     <!-- Device type information conforming to Annex B format in WiFi Direct specification.
          The default represents a dual-mode smartphone -->
     <string translatable="false" name="config_wifi_p2p_device_type">10-0050F204-5</string>
@@ -256,7 +256,8 @@
          scan and wake the host when a configured SSID is detected by the dongle. This chipset
          capability can provide power savings when wifi needs to be always kept on.
          The driver commands needed to support the feature are BGSCAN-START and BGSCAN-STOP -->
-    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
+    <!-- Note: (tgascoigne) Assuming the following is true, could find no sources -->
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
     <integer translatable="false" name="config_wifi_supplicant_scan_interval">15000</integer>
