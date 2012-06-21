@@ -56,6 +56,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/prebuilt/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
 	device/htc/endeavoru/prebuilt/modules/compat.ko:system/lib/modules/compat.ko \
+	device/htc/endeavoru/prebuilt/modules/cavm_sqos_mod.ko:system/lib/modules/cavm_sqos_mod.ko \
 	device/htc/endeavoru/prebuilt/modules/mac80211.ko:system/lib/modules/mac80211.ko \
 	device/htc/endeavoru/prebuilt/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
 	device/htc/endeavoru/prebuilt/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
