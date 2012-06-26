@@ -50,6 +50,9 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # tegra platform
 TARGET_BOARD_PLATFORM := tegra
 
+# Enable WEBGL in WebKit
+ENABLE_WEBGL := true
+
 # graphics
 BOARD_EGL_CFG := device/htc/endeavoru/configs/egl.cfg
 USE_OPENGL_RENDERER := true
