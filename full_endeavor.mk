@@ -109,6 +109,11 @@ PRODUCT_COPY_FILES += \
 	device/htc/endeavoru/prebuilt/lib/libmedia.so:system/lib/libmedia.so \
 	device/htc/endeavoru/prebuilt/lib/libaudioflinger.so:system/lib/libaudioflinger.so
 
+# Modified libcamera_client (ignores invalid face recognition parcels)
+# see https://github.com/tgascoigne/android_frameworks_base/commit/3f0067e
+PRODUCT_COPY_FILES += \
+        device/htc/endeavoru/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	make_ext4fs \
