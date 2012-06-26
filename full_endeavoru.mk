@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PACKAGE_OVERLAYS := device/htc/endeavoru/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # NEED TO ADD acp_recvy and miniunz for some reason
 
@@ -24,27 +24,27 @@ PRODUCT_LOCALES += en_US xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
-	device/htc/endeavoru/ramdisk/init:root/init \
-	device/htc/endeavoru/ramdisk/init.rc:root/init.rc \
-	device/htc/endeavoru/ramdisk/init.usb.rc:root/init.usb.rc \
-	device/htc/endeavoru/ramdisk/init.endeavoru.rc:root/init.endeavoru.rc \
-	device/htc/endeavoru/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
-	device/htc/endeavoru/ramdisk/ueventd.rc:root/ueventd.rc \
-	device/htc/endeavoru/ramdisk/ueventd.endeavoru.rc:root/ueventd.endeavoru.rc
+	$(LOCAL_PATH)/ramdisk/init:root/init \
+	$(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
+	$(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
+	$(LOCAL_PATH)/ramdisk/init.endeavoru.rc:root/init.endeavoru.rc \
+	$(LOCAL_PATH)/ramdisk/init.endeavoru.common.rc:root/init.endeavoru.common.rc \
+	$(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
+	$(LOCAL_PATH)/ramdisk/ueventd.endeavoru.rc:root/ueventd.endeavoru.rc
 
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/configs/gps.conf:system/etc/gps.conf \
-	device/htc/endeavoru/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	device/htc/endeavoru/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
-	device/htc/endeavoru/configs/nvcamera.conf:system/etc/nvcamera.conf \
-	device/htc/endeavoru/configs/asound.conf:system/etc/asound.conf \
-	device/htc/endeavoru/configs/AIC3008_REG_DualMic_XC.csv:system/etc/AIC3008_REG_DualMic_XC.csv \
-	device/htc/endeavoru/configs/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
-	device/htc/endeavoru/configs/alsa.conf:system/usr/share/alsa/alsa.conf
+	$(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+	$(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
+	$(LOCAL_PATH)/configs/nvcamera.conf:system/etc/nvcamera.conf \
+	$(LOCAL_PATH)/configs/asound.conf:system/etc/asound.conf \
+	$(LOCAL_PATH)/configs/AIC3008_REG_DualMic_XC.csv:system/etc/AIC3008_REG_DualMic_XC.csv \
+	$(LOCAL_PATH)/configs/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
+	$(LOCAL_PATH)/configs/alsa.conf:system/usr/share/alsa/alsa.conf
 
 # GPS Certificate
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/etc/SuplRootCert:system/etc/SuplRootCert
+	$(LOCAL_PATH)/prebuilt/etc/SuplRootCert:system/etc/SuplRootCert
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -54,20 +54,19 @@ PRODUCT_PACKAGES += \
 
 # Wifi Modules
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-	device/htc/endeavoru/prebuilt/modules/compat.ko:system/lib/modules/compat.ko \
-	device/htc/endeavoru/prebuilt/modules/cavm_sqos_mod.ko:system/lib/modules/cavm_sqos_mod.ko \
-	device/htc/endeavoru/prebuilt/modules/htc_sqos_ctrlmsg.ko:system/lib/modules/htc_sqos_ctrlmsg.ko \
-	device/htc/endeavoru/prebuilt/modules/htc_sqos_encoder.ko:system/lib/modules/htc_sqos_encoder.ko \
-	device/htc/endeavoru/prebuilt/modules/htc_sqos_wifi.ko:system/lib/modules/htc_sqos_wifi.ko \
-	device/htc/endeavoru/prebuilt/modules/mac80211.ko:system/lib/modules/mac80211.ko \
-	device/htc/endeavoru/prebuilt/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
-	device/htc/endeavoru/prebuilt/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
-
+	$(LOCAL_PATH)/prebuilt/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
+	$(LOCAL_PATH)/prebuilt/modules/compat.ko:system/lib/modules/compat.ko \
+	$(LOCAL_PATH)/prebuilt/modules/cavm_sqos_mod.ko:system/lib/modules/cavm_sqos_mod.ko \
+	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_ctrlmsg.ko:system/lib/modules/htc_sqos_ctrlmsg.ko \
+	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_encoder.ko:system/lib/modules/htc_sqos_encoder.ko \
+	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_wifi.ko:system/lib/modules/htc_sqos_wifi.ko \
+	$(LOCAL_PATH)/prebuilt/modules/mac80211.ko:system/lib/modules/mac80211.ko \
+	$(LOCAL_PATH)/prebuilt/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
+	$(LOCAL_PATH)/prebuilt/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
 
 # Vold
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/vold.fstab:system/etc/vold.fstab
+	$(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -75,7 +74,7 @@ PRODUCT_PACKAGES += \
 
 # Keyboard
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+	$(LOCAL_PATH)/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -101,18 +100,18 @@ PRODUCT_PACKAGES += \
 
 # NFC firmware
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
+	$(LOCAL_PATH)/prebuilt/lib/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
 # TripNRaver's libmedia + libaudioflinger
 # Part of the echo fix (stops camera from breaking)
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/lib/libmedia.so:system/lib/libmedia.so \
-	device/htc/endeavoru/prebuilt/lib/libaudioflinger.so:system/lib/libaudioflinger.so
+	$(LOCAL_PATH)/prebuilt/lib/libmedia.so:system/lib/libmedia.so \
+	$(LOCAL_PATH)/prebuilt/lib/libaudioflinger.so:system/lib/libaudioflinger.so
 
 # Modified libcamera_client (ignores invalid face recognition parcels)
 # see https://github.com/tgascoigne/android_frameworks_base/commit/3f0067e
 PRODUCT_COPY_FILES += \
-        device/htc/endeavoru/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so
+	$(LOCAL_PATH)/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -145,14 +144,14 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/prebuilt/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
-	device/htc/endeavoru/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-	device/htc/endeavoru/prebuilt/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc
+	$(LOCAL_PATH)/prebuilt/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
+	$(LOCAL_PATH)/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+	$(LOCAL_PATH)/prebuilt/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc
 
 # Custom media config for HTC camera
 PRODUCT_COPY_FILES += \
-	device/htc/endeavoru/configs/media_profiles.xml:system/etc/media_profiles.xml
-		
+	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=320 \
 	wifi.interface=wlan0 \
