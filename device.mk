@@ -13,6 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # NEED TO ADD acp_recvy and miniunz for some reason
@@ -52,15 +58,34 @@ PRODUCT_PACKAGES += \
 	TQS_D_1.7.ini \
 	calibrator
 
-# Wifi Modules
+# Modules
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/modules/baseband_usb_chr.ko:system/lib/modules/baseband_usb_chr.ko \
+	$(LOCAL_PATH)/prebuilt/modules/baseband-xmm-power2.ko:system/lib/modules/baseband-xmm-power2.ko \
+	$(LOCAL_PATH)/prebuilt/modules/bluetooth.ko:system/lib/modules/bluetooth.ko \
+	$(LOCAL_PATH)/prebuilt/modules/bnep.ko:system/lib/modules/bnep.ko \
+	$(LOCAL_PATH)/prebuilt/modules/btwilink.ko:system/lib/modules/btwilink.ko \
+	$(LOCAL_PATH)/prebuilt/modules/cavm_sqos_mod.ko:system/lib/modules/cavm_sqos_mod.ko \
+	$(LOCAL_PATH)/prebuilt/modules/cdc-acm.ko:system/lib/modules/cdc-acm.ko \
 	$(LOCAL_PATH)/prebuilt/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
 	$(LOCAL_PATH)/prebuilt/modules/compat.ko:system/lib/modules/compat.ko \
-	$(LOCAL_PATH)/prebuilt/modules/cavm_sqos_mod.ko:system/lib/modules/cavm_sqos_mod.ko \
+	$(LOCAL_PATH)/prebuilt/modules/fm_drv.ko:system/lib/modules/fm_drv.ko \
+	$(LOCAL_PATH)/prebuilt/modules/gps_drv.ko:system/lib/modules/gps_drv.ko \
+	$(LOCAL_PATH)/prebuilt/modules/hci_uart.ko:system/lib/modules/hci_uart.ko \
+	$(LOCAL_PATH)/prebuilt/modules/hid-magicmouse.ko:system/lib/modules/hid-magicmouse.ko \
+	$(LOCAL_PATH)/prebuilt/modules/hidp.ko:system/lib/modules/hidp.ko \
 	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_ctrlmsg.ko:system/lib/modules/htc_sqos_ctrlmsg.ko \
 	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_encoder.ko:system/lib/modules/htc_sqos_encoder.ko \
 	$(LOCAL_PATH)/prebuilt/modules/htc_sqos_wifi.ko:system/lib/modules/htc_sqos_wifi.ko \
+	$(LOCAL_PATH)/prebuilt/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+	$(LOCAL_PATH)/prebuilt/modules/lib80211.ko:system/lib/modules/lib80211.ko \
 	$(LOCAL_PATH)/prebuilt/modules/mac80211.ko:system/lib/modules/mac80211.ko \
+	$(LOCAL_PATH)/prebuilt/modules/raw_ip_net.ko:system/lib/modules/raw_ip_net.ko \
+	$(LOCAL_PATH)/prebuilt/modules/rfcomm.ko:system/lib/modules/rfcomm.ko \
+	$(LOCAL_PATH)/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+	$(LOCAL_PATH)/prebuilt/modules/st_drv.ko:system/lib/modules/st_drv.ko \
+	$(LOCAL_PATH)/prebuilt/modules/tcrypt.ko:system/lib/modules/tcrypt.ko \
+	$(LOCAL_PATH)/prebuilt/modules/ti_hci_drv.ko:system/lib/modules/ti_hci_drv.ko \
 	$(LOCAL_PATH)/prebuilt/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
 	$(LOCAL_PATH)/prebuilt/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
 
