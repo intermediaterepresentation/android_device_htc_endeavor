@@ -21,7 +21,14 @@ endif
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
-# NEED TO ADD acp_recvy and miniunz for some reason
+# Set secure on user builds
+ifeq ($(TARGET_BUILT_VARIANT),user)
+ADDITIONAL_DEFAULT_PROPERTIES += \
+	ro.secure=1
+else
+ADDITIONAL_DEFAULT_PROPERTIES += \
+	ro.secure=0
+endif
 
 # # This device is xhdpi.
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
